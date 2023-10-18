@@ -1,0 +1,10 @@
+<div class="container">
+    <!-- When personAdded emits an event from app-button, onPersonAdded function is called -->
+    <app-add-people class="button-style" (personAdded)="onPersonAdded($event)"></app-add-people>
+    <ul>
+        <!-- Display a list of people added on peopleList -->
+        <li *ngFor="let person of peopleList">
+            {{ person.name }} ({{ person.age }} years)
+        </li>
+    </ul>
+</div>

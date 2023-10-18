@@ -1,0 +1,31 @@
+<!-- When click on Add People button it displays a modal, showing the form to fill and add people -->
+<button class="add-people" id="addPeopleButton" (click)="showModal = true">Add People</button>
+
+<!-- Styles added to the modal shoed only if modal is open -->
+<div class="modal-backdrop" *ngIf="showModal"></div>
+<div class="modal-container" *ngIf="showModal">
+
+<div class="modal-content">
+    <!-- Close modal when click on X button -->
+    <button class="close-button" id="closeModalButton" (click)="closeModal()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="none" d="M0 0h24v24H0V0z"/>
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" fill="var(--c-text-secondary)"/>
+        </svg>
+    </button>
+    
+    <!-- Save the value of nameForLabel input on newPerson object with name key when the input fielt change -->
+    <div class="input-form">
+        <label for="nameFormLabel">Name:</label>
+        <input type="text" id="nameFormLabel" [(ngModel)]="newPerson.name">
+    </div>
+
+    <!-- Save the value of ageFormLabel input on newPerson object with age key when the input fielt change -->
+    <div class="input-form">
+        <label for="ageFormLabel">Age:</label>
+        <input type="number" id="ageFormLabel" [(ngModel)]="newPerson.age">
+    </div>
+
+    <!-- Save values of newPerson object to display on people component -->
+    <button class="save-button" (click)="addPerson()">Save</button>
+</div>
